@@ -324,7 +324,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Did Your Code Work Perfectly?</title>
     <style>
-        /* Reset default margins and paddings, and prevent scrolling */
+        /* Reset default margins and paddings, and prevent scroll */
         html, body {
             height: 100%;
             margin: 0;
