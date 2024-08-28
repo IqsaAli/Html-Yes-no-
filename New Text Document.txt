@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        /* Reset default margins and paddings, and prevent scrolling */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Styling for the main question text */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Container for the buttons */
+        .buttons {
+            display: flex; /* Use flexbox for button alignment */
+            justify-content: center; /* Center the buttons */
+            gap: 30px; /* Add space between the buttons */
+        }
+
+        /* General button styling */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            width: 100px; /* Ensure both buttons are the same size */
+            height: 40px;
+            margin: 0; /* Remove margins as we use gap in flexbox */
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        /* Specific styling for the "Yes" button */
+        #yesBtn {
+            background-color: #4caf50;
+            color: white;
+            margin-left: -100px;
+            position: fixed; /* Position relative to the viewport */
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Specific styling for the "No" button */
+        #noBtn {
+            background-color: #8f3712;
+            margin-top: 40px;
+            margin-top: 50px;
+            margin-left: 200px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Did your code work perfectly the first time🤔?</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+
+    <script>
+        // Select the buttons and the header
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const header = document.querySelector('h1');
+
+        // Event listener for the "No" button
+        noBtn.addEventListener('click', () => {
+            header.textContent = 'Itna b sach nhi bolna tha😬🤫';
+        });
+
+        // Event listener for the "Yes" button
+        yesBtn.addEventListener('click', () => {
+            // Get button dimensions
+            const btnWidth = yesBtn.offsetWidth;
+            const btnHeight = yesBtn.offsetHeight;
+
+            // Calculate the maximum allowed positions to keep the button within the viewport
+            const maxX = window.innerWidth - btnWidth;
+            const maxY = window.innerHeight - btnHeight;
+
+            // Generate random positions within the allowed range
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            // Apply the new positions
+            yesBtn.style.left = `${randomX}px`;
+            yesBtn.style.top = `${randomY}px`;
+            yesBtn.style.transform = `translate(0, 0)`; // Reset transform after moving
+        });
+
+        // Optional: Adjust the "Yes" button position if the window is resized
+        window.addEventListener('resize', () => {
+            // Ensure the "Yes" button stays within the viewport after resizing
+            const btnWidth = yesBtn.offsetWidth;
+            const btnHeight = yesBtn.offsetHeight;
+
+            let currentX = parseInt(yesBtn.style.left) || 0;
+            let currentY = parseInt(yesBtn.style.top) || 0;
+
+            // Adjust positions if necessary
+            if (currentX + btnWidth > window.innerWidth) {
+                currentX = window.innerWidth - btnWidth;
+            }
+            if (currentY + btnHeight > window.innerHeight) {
+                currentY = window.innerHeight - btnHeight;
+            }
+
+            yesBtn.style.left = `${currentX}px`;
+            yesBtn.style.top = `${currentY}px`;
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        /* Reset default margins and paddings, and prevent scrolling */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Styling for the main question text */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Container for the buttons */
+        .buttons {
+            display: flex; /* Use flexbox for button alignment */
+            justify-content: center; /* Center the buttons */
+            gap: 30px; /* Add space between the buttons */
+        }
+
+        /* General button styling */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0; /* Remove margins as we use gap in flexbox */
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        /* Specific styling for the "Yes" button */
+        #yesBtn {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        /* Specific styling for the "No" button */
+        #noBtn {
+            background-color: #f44336;
+            margin-top: 40px;
+            color: white;
+            position: fixed; /* Position relative to the viewport */
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Do you love me🥺♥️?</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+
+    <script>
+        // Select the buttons and the header
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const header = document.querySelector('h1');
+
+        // Event listener for the "Yes" button
+        yesBtn.addEventListener('click', () => {
+            header.textContent = 'I love you moreee😍!';
+        });
+
+        // Event listener for the "No" button
+        noBtn.addEventListener('click', () => {
+            // Get the current button position
+            const currentX = parseInt(noBtn.style.left) || window.innerWidth / 2;
+            const currentY = parseInt(noBtn.style.top) || window.innerHeight / 2;
+
+            // Calculate the new positions by moving exactly 50px in a random direction
+            const directions = [
+                { x: 50, y: 0 },   // Move right
+                { x: -50, y: 0 },  // Move left
+                { x: 0, y: 50 },   // Move down
+                { x: 0, y: -50 }   // Move up
+            ];
+
+            // Choose a random direction
+            const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+
+            let newX = currentX + randomDirection.x;
+            let newY = currentY + randomDirection.y;
+
+            // Ensure the new positions are within the viewport bounds
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+
+            const maxX = window.innerWidth - btnWidth;
+            const maxY = window.innerHeight - btnHeight;
+
+            if (newX < 0) newX = 0;
+            if (newX > maxX) newX = maxX;
+            if (newY < 0) newY = 0;
+            if (newY > maxY) newY = maxY;
+
+            // Apply the new positions
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+            noBtn.style.transform = `translate(0, 0)`; // Reset transform after moving
+        });
+
+        // Optional: Adjust the "No" button position if the window is resized
+        window.addEventListener('resize', () => {
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+
+            let currentX = parseInt(noBtn.style.left) || 0;
+            let currentY = parseInt(noBtn.style.top) || 0;
+
+            if (currentX + btnWidth > window.innerWidth) {
+                currentX = window.innerWidth - btnWidth;
+            }
+            if (currentY + btnHeight > window.innerHeight) {
+                currentY = window.innerHeight - btnHeight;
+            }
+
+            noBtn.style.left = `${currentX}px`;
+            noBtn.style.top = `${currentY}px`;
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Did Your Code Work Perfectly?</title>
+    <style>
+        /* Reset default margins and paddings, and prevent scrolling */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Styling for the main question text */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Container for the buttons */
+        .buttons {
+            display: flex; /* Use flexbox for button alignment */
+            justify-content: center; /* Center the buttons */
+            gap: 30px; /* Add space between the buttons */
+        }
+
+        /* General button styling */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            width: 100px; /* Ensure both buttons are the same size */
+            height: 40px;
+            margin: 0; /* Remove margins as we use gap in flexbox */
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        /* Specific styling for the "Yes" button */
+        #yesBtn {
+            background-color: #4caf50;
+            color: white;
+            margin-left: -100px;
+            position: fixed; /* Position relative to the viewport */
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Specific styling for the "No" button */
+        #noBtn {
+            background-color: #8f3712;
+            margin-top: 40px;
+            margin-left: 200px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Did your code work perfectly the first time🤔?</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+
+    <script>
+        // Select the buttons and the header
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const header = document.querySelector('h1');
+
+        // Event listener for the "No" button
+        noBtn.addEventListener('click', () => {
+            header.textContent = 'Itna b sach nhi bolna tha😬🤫';
+        });
+
+        // Event listener for the "Yes" button
+        yesBtn.addEventListener('click', () => {
+            // Get the current button position
+            const currentX = parseInt(yesBtn.style.left) || window.innerWidth / 2;
+            const currentY = parseInt(yesBtn.style.top) || window.innerHeight / 2;
+
+            // Define the movement options
+            const directions = [
+                { x: 70, y: 0 },   // Move right
+                { x: -70, y: 0 },  // Move left
+                { x: 0, y: 70 },   // Move down
+                { x: 0, y: -70 }   // Move up
+            ];
+
+            // Choose a random direction
+            const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+
+            let newX = currentX + randomDirection.x;
+            let newY = currentY + randomDirection.y;
+
+            // Ensure the new positions are within the viewport bounds
+            const btnWidth = yesBtn.offsetWidth;
+            const btnHeight = yesBtn.offsetHeight;
+
+            const maxX = window.innerWidth - btnWidth;
+            const maxY = window.innerHeight - btnHeight;
+
+            if (newX < 0) newX = 0;
+            if (newX > maxX) newX = maxX;
+            if (newY < 0) newY = 0;
+            if (newY > maxY) newY = maxY;
+
+            // Apply the new positions
+            yesBtn.style.left = `${newX}px`;
+            yesBtn.style.top = `${newY}px`;
+            yesBtn.style.transform = `translate(0, 0)`; // Reset transform after moving
+        });
+
+        // Optional: Adjust the "Yes" button position if the window is resized
+        window.addEventListener('resize', () => {
+            const btnWidth = yesBtn.offsetWidth;
+            const btnHeight = yesBtn.offsetHeight;
+
+            let currentX = parseInt(yesBtn.style.left) || 0;
+            let currentY = parseInt(yesBtn.style.top) || 0;
+
+            if (currentX + btnWidth > window.innerWidth) {
+                currentX = window.innerWidth - btnWidth;
+            }
+            if (currentY + btnHeight > window.innerHeight) {
+                currentY = window.innerHeight - btnHeight;
+            }
+
+            yesBtn.style.left = `${currentX}px`;
+            yesBtn.style.top = `${currentY}px`;
+        });
+    </script>
+
+</body>
+</html>
+
+
+.
+
